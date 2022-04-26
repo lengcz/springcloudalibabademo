@@ -1,0 +1,18 @@
+server:
+  port: ${port:10000}  #启动端口
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:  #注册发现
+        server-addr: 127.0.0.1:8848
+        namespace: 869a0c6d-267e-4aa1-96cb-552cb1632c72  #dev
+        cluster-name: DEFAULT #集群
+      config:     #配置中心
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: 869a0c6d-267e-4aa1-96cb-552cb1632c72  #dev
+        group: NACOS_MICROSERVICE_GROUP #业务组
+  main:
+    allow-bean-definition-overriding: true # spring boot 2.1 需要设定(防止bean重复覆盖问题)
